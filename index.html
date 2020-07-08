@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation form</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <section class="main">
+            <div class="card u-mt-48 u-mb-48">
+                <div class="row">
+                    <div class="col-2-3">
+                        <div class="form-bg u-padding-32">
+                            <h2 class="heading u-mt-48 u-mb-24">Contact</h2>
+                            <p class="message">We are open for any suggestion or just to have a chat</p>
+                        </div>
+                    </div>
+                    <div class="col-1-3 u-padding-32">
+                        <form action="" class="form">
+                            <div class="input-container">
+                                <input class="js-input" type="text">
+                                <label class="label-text" for="">Name</label>
+                                <!-- 把label的位置調到後面是因為層級關係 -->
+                            </div>
+                            <div class="input-container">
+                                <input class="js-input"type="email">
+                                <label class="label-text" for="">Email</label>
+                            </div>
+                            <div class="input-container u-mb-24">
+                                <textarea class="u-resize-none js-input"name="" id="" cols="30" rows="10"></textarea>
+                                <label class="label-text" for="">Message</label>
+                            </div>
+                            <div class="u-text-center">
+                                <input class="btn btn--primary"type="submit" value="SEND">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- JS -->
+    <script src="./form.js"></script>
+    <script>
+        $(".js-input").focus(function(){
+            $(this).parent().find(".label-text")
+            .addClass("is-active");
+        })
+        // focus:聚焦在點擊位置 this:隨意點選任一的input parent:往父層中尋找 find:找尋裡面的元素 addClass:新增css效果
+        $(".js-input").blur(function(){
+            if($(this).val().length == 0){
+                $(this).parent().find(".label-text")
+            .removeClass("is-active");
+            // blur:是表示點選外面任一地方 removeClass:移除css效果
+            } 
+        })
+    </script>
+</body>
+
+</html>
